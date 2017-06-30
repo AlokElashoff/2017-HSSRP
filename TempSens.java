@@ -16,9 +16,19 @@ public class TempSens {
   }
 
   public static void main (String[] args){
+    float c;
+    float f;
+    float value;
+
     Aio temp = new Aio(0);
     Gpio button = new Gpio(3);
-    float value = temp.readFloat();
-    System.out.println("The temperature is " + value);
+
+    value = temp.readFloat();
+    value = value * 5000;
+    c = (value-500)10;
+    f = 9/5(c)+32;
+
+
+    System.out.println("The temperature is " + f);
   }
 }
