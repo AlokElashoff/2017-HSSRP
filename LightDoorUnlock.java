@@ -22,12 +22,7 @@ public class LightDoorUnlock {
       Aio light = new Aio(3);
       float value = light.readFloat();
       //System.out.println("The reading from the phototransistor is " + value);
-      if(value <= .5) {
-        value = 0;
-      }
-      else {
-        value = 1;
-      }
+      Math.round(value);
       password[i] = value;
       TimeUnit.SECONDS.sleep(1);
     }
