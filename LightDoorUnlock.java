@@ -21,7 +21,7 @@ public class LightDoorUnlock {
     System.out.println("Recording password now.");
     int[] password = new int[4];
     for(int i = 0; i < 4; i++) {
-      System.out.println(i);
+      System.out.println(4-i);
       Aio light = new Aio(3);
       float value = light.readFloat();
       //System.out.println("The reading from the phototransistor is " + value);
@@ -33,7 +33,7 @@ public class LightDoorUnlock {
       }
 
     }
-      int passSend = password[0]+password[1]+password[2]+password[3];
+      int passSend = password[0]*1000+password[1]*100+password[2]*10+password[3];
       System.out.println("The password is " + passSend);
       try {
         Socket socket = new Socket("r01.cs.ucla.edu",16000);
