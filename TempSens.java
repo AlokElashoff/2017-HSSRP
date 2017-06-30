@@ -25,7 +25,7 @@ public class TempSens {
 
     value = temp.readFloat();
     value = value * 5000;
-    c = (value-500)*10;
+    c = (value-500)/10;
     f = (9/5)*(c)+32;
 
 
