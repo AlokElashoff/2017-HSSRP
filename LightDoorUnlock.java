@@ -33,7 +33,7 @@ public class LightDoorUnlock {
       }
 
     }
-      int passSend = password[0]*1000+password[1]*100+password[2]*10+password[3];
+      String passSend = password[0]+password[1]+password[2]+password[3];
       System.out.println("The password is " + passSend);
       try {
         Socket socket = new Socket("r01.cs.ucla.edu",16000);
