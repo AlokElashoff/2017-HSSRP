@@ -39,7 +39,7 @@ public class LightDoorUnlock {
         Socket socket = new Socket("r01.cs.ucla.edu",16000);
         PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
         printWriter.println("ID = 1427 Password = " + passSend);
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         System.out.println(bufferedReader.readLine());
       } catch (Exception e){
         System.exit(1);
