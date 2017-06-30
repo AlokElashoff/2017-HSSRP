@@ -3,6 +3,9 @@ import java.util.concurrent.TimeUnit;
 import java.io.*;
 import java.net.*;
 
+//UserID is Group4
+//Password is 1101
+
 public class LightDoorUnlock {
 
   static {
