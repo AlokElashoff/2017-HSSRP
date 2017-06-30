@@ -33,12 +33,11 @@ public class LightDoorUnlock {
       }
 
     }
-      String passSend = password[0]+password[1]+password[2]+password[3];
-      System.out.println("The password is " + passSend);
+      System.out.println("The password is " + password[0]+password[1]+password[2]+password[3]);
       try {
         Socket socket = new Socket("r01.cs.ucla.edu",16000);
         PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-        printWriter.println("ID = 1427 Password = " + passSend);
+        printWriter.println("ID = 1427 Password = " + password[0]+password[1]+password[2]+password[3]);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         System.out.println(bufferedReader.readLine());
       } catch (Exception e){
