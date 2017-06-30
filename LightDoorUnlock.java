@@ -16,7 +16,7 @@ public class LightDoorUnlock {
 
   public static void main(String[] args)
   {
-    int[] password;
+    int[] password = new int[4];
     for(int i = 0; i < 4; i++) {
 
       Aio light = new Aio(3);
