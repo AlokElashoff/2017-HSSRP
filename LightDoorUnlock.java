@@ -1,5 +1,7 @@
 import mraa.Aio;
 import java.util.concurrent.TimeUnit;
+import java.io.*;
+import java.net.*;
 
 public class LightDoorUnlock {
 
@@ -16,10 +18,10 @@ public class LightDoorUnlock {
 
   public static void main(String[] args)
   {
-    System.out.println("Recording password now.\n");
+    System.out.println("Recording password now.");
     int[] password = new int[4];
     for(int i = 0; i < 4; i++) {
-
+      System.out.println(i);
       Aio light = new Aio(3);
       float value = light.readFloat();
       //System.out.println("The reading from the phototransistor is " + value);
@@ -31,7 +33,16 @@ public class LightDoorUnlock {
       }
 
     }
-      System.out.println("The password is " + password[0]+password[1]+password[2]+password[3]);
-
+      int passSend = password[0]+password[1]+password[2]+password[3];
+      System.out.println("The password is " + passSend);
+      try {
+        Socket socket = new Socket("r01.cs.ucla.edu",16000);
+        PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+        printWriter.println("ID = 1427 Password = " + passSend);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream));
+        System.out.println(bufferedReader.readLine());
+      } catch (Exception e){
+        System.exit(1);
+      }
   }
 }
