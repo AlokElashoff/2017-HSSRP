@@ -24,7 +24,7 @@ public class TempSens {
     Aio temp = new Aio(0);
     Gpio button = new Gpio(3);
 
-    value = temp.readDouble();
+    value = temp.readFloat();
     value = value*1023;
     //c = (value-500)/10;
     //f = (9/5)*(c)+32;
