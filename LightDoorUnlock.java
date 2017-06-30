@@ -22,8 +22,8 @@ public class LightDoorUnlock {
       Aio light = new Aio(3);
       float value = light.readFloat();
       //System.out.println("The reading from the phototransistor is " + value);
-      Math.round(value);
-      password[i] = value;
+      int passwordValue = Math.round(value);
+      password[i] = passwordValue;
       TimeUnit.SECONDS.sleep(1);
     }
       System.out.println("The password is " + password);
