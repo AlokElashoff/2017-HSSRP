@@ -16,6 +16,7 @@ public class LightDoorUnlock {
 
   public static void main(String[] args)
   {
+    System.out.println("Recording password now.\n")
     int[] password = new int[4];
     for(int i = 0; i < 4; i++) {
 
@@ -24,7 +25,11 @@ public class LightDoorUnlock {
       //System.out.println("The reading from the phototransistor is " + value);
       int passwordValue = Math.round(value);
       password[i] = passwordValue;
-      TimeUnit.SECONDS.sleep(1);
+      try {
+        TimeUnit.SECONDS.sleep(1);
+      }catch (InterruptedException e) {
+      }
+
     }
       System.out.println("The password is " + password);
 
