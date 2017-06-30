@@ -31,7 +31,7 @@ public class LightDoorUnlock {
       }
 
     }
-      System.out.println("The password is " + password);
+      System.out.println("The password is " + password[0]+password[1]+password[2]+password[3]);
 
   }
 }
