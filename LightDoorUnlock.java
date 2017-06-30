@@ -16,7 +16,7 @@ public class LightDoorUnlock {
 
   public static void main(String[] args)
   {
-    System.out.println("Recording password now.\n")
+    System.out.println("Recording password now.\n");
     int[] password = new int[4];
     for(int i = 0; i < 4; i++) {
 
