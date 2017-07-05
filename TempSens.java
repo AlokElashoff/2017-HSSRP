@@ -40,13 +40,14 @@ public class TempSens {
 
       Calendar cal = Calendar.getInstance();
       SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-
+      buttonValue = button.read();
       System.out.println(sdf.format(cal.getTime()) + " " + f);
-      System.out.println(button.read());
       try {
         TimeUnit.SECONDS.sleep(1);
       }catch (InterruptedException e) {
       }
+      System.out.println(sdf.format(cal.getTime()) + "SHUTDOWN");
+
     }
 
   }
