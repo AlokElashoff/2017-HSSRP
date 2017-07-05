@@ -19,8 +19,6 @@ public class TempSens {
   }
 
   public static void main (String[] args){
-    Calendar cal = Calendar.getInstance();
-    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     double c;
     double f;
     double k;
@@ -28,6 +26,7 @@ public class TempSens {
 
     Aio temp = new Aio(0);
     Gpio button = new Gpio(3);
+
 
     value = temp.readFloat();
     value = value*1023;
@@ -39,7 +38,10 @@ public class TempSens {
     c = k - 273.15;              // Convert Kelvin to Celsius
     f = (c * 9.0)/ 5.0 + 32.0;
 
+    Calendar cal = Calendar.getInstance();
+    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
     System.out.println(sdf.format(cal.getTime()) + " " + f);
+    System.out.println(button.read());
   }
 }
