@@ -40,7 +40,7 @@ public class TempSens {
       c = k - 273.15;              // Convert Kelvin to Celsius
       f = (c * 9.0)/ 5.0 + 32.0;
 
-
+      cal = Calendar.getInstance();
       buttonValue = button.read();
       System.out.println(sdf.format(cal.getTime()) + " " + f);
       try {
