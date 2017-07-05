@@ -23,25 +23,31 @@ public class TempSens {
     double f;
     double k;
     double value;
-
+    int buttonValue = 0;
     Aio temp = new Aio(0);
     Gpio button = new Gpio(3);
 
+    while (buttonValue = 0) {
+      value = temp.readFloat();
+      value = value*1023;
+      //c = (value-500)/10;
+      //f = (9/5)*(c)+32;
 
-    value = temp.readFloat();
-    value = value*1023;
-    //c = (value-500)/10;
-    //f = (9/5)*(c)+32;
+      k = Math.log(((10240000/value) - 10000));
+      k = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * k * k ))* k );
+      c = k - 273.15;              // Convert Kelvin to Celsius
+      f = (c * 9.0)/ 5.0 + 32.0;
 
-    k = Math.log(((10240000/value) - 10000));
-    k = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * k * k ))* k );
-    c = k - 273.15;              // Convert Kelvin to Celsius
-    f = (c * 9.0)/ 5.0 + 32.0;
+      Calendar cal = Calendar.getInstance();
+      SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
-    Calendar cal = Calendar.getInstance();
-    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+      System.out.println(sdf.format(cal.getTime()) + " " + f);
+      System.out.println(button.read());
+      try {
+        TimeUnit.SECONDS.sleep(1);
+      }catch (InterruptedException e) {
+      }
+    }
 
-    System.out.println(sdf.format(cal.getTime()) + " " + f);
-    System.out.println(button.read());
   }
 }
