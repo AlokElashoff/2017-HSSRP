@@ -18,6 +18,7 @@ public class TempSens {
   }
 
   public static void main (String[] args){
+    TimeZone.setDefault(TimeZone.getTimeZone("Pacific/Auckland"));
     Calendar cal = Calendar.getInstance();
     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     System.out.println(  );
