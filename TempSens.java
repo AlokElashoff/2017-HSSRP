@@ -46,9 +46,10 @@ public class TempSens {
         TimeUnit.SECONDS.sleep(1);
       }catch (InterruptedException e) {
       }
-      System.out.println(sdf.format(cal.getTime()) + "SHUTDOWN");
+
 
     }
+    System.out.println(sdf.format(cal.getTime()) + "SHUTDOWN");
 
   }
 }
