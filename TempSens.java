@@ -1,8 +1,7 @@
 import mraa.Aio;
 import mraa.Gpio;
 import java.util.concurrent.TimeUnit;
-import java.util.Calendar;
-import java.text.SimpleDateFormat;
+import java.time.*;
 
 public class TempSens {
 
@@ -18,9 +17,12 @@ public class TempSens {
   }
 
   public static void main (String[] args){
-    TimeZone.setDefault(TimeZone.getTimeZone("Pacific/Auckland"));
-    Calendar cal = Calendar.getInstance();
-    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    Instant instant = Instant.now();
+    ZonedDateTime now = ZonedDateTime.now( ZoneOffset.UTC );
+
+    //TimeZone.setDefault(TimeZone.getTimeZone("Pacific/Auckland"));
+    //Calendar cal = Calendar.getInstance();
+    //SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     System.out.println(  );
     double c;
     double f;
@@ -41,6 +43,6 @@ public class TempSens {
     f = (c * 9.0)/ 5.0 + 32.0;
 
 
-    System.out.println(sdf.format(cal.getTime()) + " " + f);
+    System.out.println(now + " " + f);
   }
 }
