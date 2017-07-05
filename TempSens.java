@@ -17,8 +17,8 @@ public class TempSens {
   }
 
   public static void main (String[] args){
-    Instant instant = Instant.now();
-    ZonedDateTime now = ZonedDateTime.now( ZoneOffset.UTC );
+    DateTimeZone zonePacific = DateTimeZone.forID( "Pacific/Auckland" );
+    DateTime now = DateTime.now( zonePacific );
 
     //TimeZone.setDefault(TimeZone.getTimeZone("Pacific/Auckland"));
     //Calendar cal = Calendar.getInstance();
