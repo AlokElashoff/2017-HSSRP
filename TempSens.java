@@ -19,8 +19,8 @@ public class TempSens {
   }
 
   public static void main (String[] args){
+    Calendar cal = Calendar.getInstance();
     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-    sdf.setTimeZone(TimeZone.getTimeZone("Pacific/Auckland"));
     double c;
     double f;
     double k;
@@ -40,6 +40,6 @@ public class TempSens {
     f = (c * 9.0)/ 5.0 + 32.0;
 
 
-    System.out.println(sdf.format(new Date()) + " " + f);
+    System.out.println(sdf.format(cal.getTime()) + " " + f);
   }
 }
